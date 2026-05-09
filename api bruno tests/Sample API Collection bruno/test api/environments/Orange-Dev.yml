@@ -1,0 +1,4 @@
+name: Orange-Dev
+variables:
+  - secret: true
+    name: BASE_URL

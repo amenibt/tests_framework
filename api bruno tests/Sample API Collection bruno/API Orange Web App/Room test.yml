@@ -1,0 +1,36 @@
+info:
+  name: Room test
+  type: http
+  seq: 11
+
+http:
+  method: GET
+  url: https://automationintesting.online/api/room
+  headers:
+    - name: Authorization
+      value: Bearer {{TOKEN}}
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        if (res.status !== 200) {
+          throw new Error("Rooms failed");
+        }
+
+        const rooms = res.body.rooms;
+
+        if (!rooms || !Array.isArray(rooms)) {
+          throw new Error("Invalid rooms response");
+        }
+
+        if (rooms.length === 0) {
+          throw new Error("No rooms found");
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

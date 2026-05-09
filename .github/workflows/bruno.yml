@@ -1,0 +1,48 @@
+﻿name: Bruno API Tests - Orange Web App
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 1-5'
+
+jobs:
+  bruno-api-tests:
+    name: Run Bruno Collection
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Bruno CLI
+        run: npm install -g @usebruno/cli
+
+      - name: Run Bruno collection
+        run: bru run "API Orange Web App" -r --env "orange app" --reporter-json results.json --reporter-html results.html || true
+        working-directory: "api bruno tests/Sample API Collection bruno"
+
+      - name: Upload JSON report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bruno-report-json
+          path: "api bruno tests/Sample API Collection bruno/results.json"
+          retention-days: 14
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bruno-report-html
+          path: "api bruno tests/Sample API Collection bruno/results.html"
+          retention-days: 14

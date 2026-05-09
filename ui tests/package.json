@@ -1,0 +1,31 @@
+{
+  "name": "les-cas-de-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "./tests"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@playwright/test": "^1.58.2",
+    "playwright": "^1.58.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Amen3205/PFE.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Amen3205/PFE/issues"
+  },
+  "homepage": "https://github.com/Amen3205/PFE#readme"
+}

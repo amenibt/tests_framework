@@ -1,0 +1,4 @@
+name: orange app
+variables:
+  - name: orange
+    value: BASE_URL=https://automationintesting.online/api

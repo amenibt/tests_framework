@@ -1,0 +1,36 @@
+info:
+  name: Booking test
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: https://automationintesting.online/api/booking
+  body:
+    type: json
+    data: |-
+      {
+        "roomid": 1,
+        "firstname": "Amen",
+        "lastname": "Test",
+        "depositpaid": true,
+        "bookingdates": {
+          "checkin": "2026-04-01",
+          "checkout": "2026-04-05"
+        }
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Booking created", function () {
+          expect(res.status).to.equal(201);
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

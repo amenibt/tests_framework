@@ -1,0 +1,30 @@
+info:
+  name: Authentication
+  type: http
+  seq: 8
+
+http:
+  method: POST
+  url: https://automationintesting.online/api/auth/login
+  body:
+    type: json
+    data: |-
+      {
+        "username": "admin",
+        "password": "password"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: BASE_URL
+      value: " https://automationintesting.online"
+  scripts:
+    - type: tests
+      code: bru.setEnvVar("TOKEN", res.body.token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

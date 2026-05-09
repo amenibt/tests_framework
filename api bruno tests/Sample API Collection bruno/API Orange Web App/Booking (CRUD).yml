@@ -1,0 +1,47 @@
+info:
+  name: Booking (CRUD)
+  type: http
+  seq: 16
+
+http:
+  method: POST
+  url: https://automationintesting.online/api/booking
+  headers:
+    - name: Authorization
+      value: Bearer {{TOKEN}}
+  body:
+    type: json
+    data: |-
+      {
+        "firstname": "Amen",
+        "lastname": "Test",
+        "totalprice": 30,
+        "depositpaid": true,
+        "roomid": 4,
+        "bookingdates": {
+          "checkin": "2026-05-01",
+          "checkout": "2026-05-05"
+        },
+        "additionalneeds": "Breakfast"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        if (res.status !== 200 && res.status !== 201) {
+          throw new Error("Create booking failed");
+        }
+
+        if (!res.body || !res.body.bookingid) {
+          throw new Error("Booking ID missing in response");
+        }
+
+        bru.setEnvVar("BOOKING_ID", res.body.bookingid);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

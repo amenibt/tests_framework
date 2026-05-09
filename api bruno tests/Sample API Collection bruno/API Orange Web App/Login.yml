@@ -1,0 +1,36 @@
+info:
+  name: Login
+  type: http
+  seq: 13
+
+http:
+  method: POST
+  url: https://automationintesting.online/api/auth/login
+  headers:
+    - name: Authorization
+      value: Bearer {{TOKEN}}
+  body:
+    type: json
+    data: |-
+      {
+        "username": "admin",
+        "password": "password"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: BASE_URL
+      value: "{{BASE_URL}}/auth/login"
+  scripts:
+    - type: tests
+      code: |-
+        console.log("LOGIN RESPONSE:", res.body);
+
+        bru.setEnvVar("TOKEN", res.body.token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,43 @@
+info:
+  name: Rooms Content Tests
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: https://automationintesting.online/api/room
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("Status 200", function () {
+          expect(res.status).to.equal(200);
+        });
+
+        test("Rooms exist", function () {
+          expect(res.body.rooms.length).to.be.greaterThan(0);
+        });
+
+        test("More than one room", function () {
+          expect(res.body.rooms.length).to.be.greaterThan(1);
+        });
+
+        test("Room has title", function () {
+          expect(res.body.rooms[0].roomName).to.exist;
+        });
+
+        test("Room has price", function () {
+          expect(res.body.rooms[0].roomPrice).to.exist;
+        });
+
+        test("Room has amenities", function () {
+          expect(res.body.rooms[0].features.length).to.be.greaterThan(0);
+        });
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
