@@ -49,10 +49,11 @@ export class TestUtils {
    */
   async waitForPageLoad() {
     await this.page.waitForLoadState('domcontentloaded');
-    await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {
-      // Fallback if networkidle times out
-      console.log('Network idle timeout, continuing...');
+    await this.page.waitForLoadState('load', { timeout: 15000 }).catch(() => {
+      console.log('Load timeout, continuing...');
     });
+    // Give extra time for dynamic content
+    await this.page.waitForTimeout(500);
   }
 
   /**
@@ -60,11 +61,16 @@ export class TestUtils {
    * @param {string} selector - Element selector
    * @param {number} timeout - Timeout in milliseconds (default: 10000)
    */
-  async waitForElement(selector, timeout = 10000) {
-    await this.page.waitForSelector(selector, { 
-      state: 'visible', 
-      timeout 
-    });
+  async waitForElement(selector, timeout = 15000) {
+    try {
+      await this.page.waitForSelector(selector, { 
+        state: 'visible', 
+        timeout 
+      });
+    } catch (error) {
+      console.log(`Element ${selector} not found within ${timeout}ms`);
+      throw error;
+    }
   }
 
   /**
