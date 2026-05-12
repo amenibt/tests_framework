@@ -1,0 +1,3 @@
+[TEST LOG] 2026-05-12T22:07:24.070Z - Checking booking form input fields
+Element #firstname not found within 15000ms
+Element #lastname not found within 15000ms
