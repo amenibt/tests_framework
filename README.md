@@ -62,7 +62,8 @@ tests_orangwebapp-master/
 │   └── README.md                      # API tests documentation
 │
 ├── .github/workflows/                 # CI/CD Automation
-│   └── bruno.yml                      # Bruno API tests workflow
+│   ├── ci.yml                         # Playwright tests workflow with Allure
+│   └── ALLURE_CI_SETUP.md             # 📊 Allure CI/CD guide
 │
 ├── TEST_INVENTORY.json                # 📋 Test metadata (JSON)
 ├── TEST_INVENTORY.md                  # 📋 Test documentation (Markdown)
@@ -249,6 +250,35 @@ allure --version
 - [ui tests/ALLURE_GUIDE.md](ui tests/ALLURE_GUIDE.md) - Complete Allure guide (French)
 - [ui tests/ALLURE_SETUP.md](ui tests/ALLURE_SETUP.md) - Setup summary
 - [ui tests/README.md](ui tests/README.md) - Full UI tests documentation
+- [.github/ALLURE_CI_SETUP.md](.github/ALLURE_CI_SETUP.md) - Allure CI/CD configuration
+
+### CI/CD Allure Reports (GitHub Actions)
+
+**Automatic report generation** on every push to `main`/`master`:
+
+1. **Via GitHub Artifacts** (available immediately after workflow):
+   - Go to **Actions** tab
+   - Click on the workflow run
+   - Download `allure-report` artifact
+   - Extract and open `index.html`
+
+2. **Via GitHub Pages** (requires one-time setup):
+   ```
+   https://<your-username>.github.io/<repo-name>/allure-report/
+   ```
+   
+   **Setup:**
+   - Go to **Settings** > **Pages**
+   - Source: `gh-pages` branch
+   - Save and wait for deployment
+   
+   See [.github/ALLURE_CI_SETUP.md](.github/ALLURE_CI_SETUP.md) for detailed instructions.
+
+**Features:**
+- ✅ Consolidated reports from all 3 browsers
+- ✅ Automatic history tracking
+- ✅ Public URL for team access
+- ✅ Updated on every push
 
 ### API Test Reports
 
