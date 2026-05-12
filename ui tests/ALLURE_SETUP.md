@@ -1,10 +1,10 @@
-# Allure Report - Récapitulatif d'Installation
+# Allure Report - Setup Summary
 
-## ✅ Modifications Apportées
+## ✅ Changes Applied
 
-### 1. Configuration Playwright (`playwright.config.js`)
+### 1. Playwright Configuration (`playwright.config.js`)
 
-**Ajouté** : Reporter Allure dans la configuration
+**Added**: Allure Reporter in configuration
 
 ```javascript
 reporter: [
@@ -35,9 +35,9 @@ reporter: [
 ],
 ```
 
-### 2. Dépendances (`package.json`)
+### 2. Dependencies (`package.json`)
 
-**Ajouté** : `allure-playwright` dans devDependencies
+**Added**: `allure-playwright` in devDependencies
 
 ```json
 "devDependencies": {
@@ -45,7 +45,7 @@ reporter: [
 }
 ```
 
-**Ajouté** : Scripts npm pour Allure
+**Added**: npm scripts for Allure
 
 ```json
 "scripts": {
@@ -58,7 +58,7 @@ reporter: [
 
 ### 3. Git Ignore (`.gitignore`)
 
-**Ajouté** : Dossiers Allure à ignorer
+**Added**: Allure folders to ignore
 
 ```
 allure-results/
@@ -67,162 +67,162 @@ allure-report/
 
 ### 4. Documentation (`README.md`)
 
-**Ajouté** : Sections complètes sur Allure Report
-- Installation d'Allure (Windows/Mac/Linux)
-- Utilisation des commandes Allure
-- Fonctionnalités du rapport Allure
-- Intégration CI/CD
-- Exemples de graphiques et statistiques
+**Added**: Complete sections on Allure Report
+- Allure installation (Windows/Mac/Linux)
+- Allure commands usage
+- Allure report features
+- CI/CD integration
+- Graph and statistics examples
 
-### 5. Guide Détaillé (`ALLURE_GUIDE.md`)
+### 5. Detailed Guide (`ALLURE_GUIDE.md`)
 
-**Créé** : Guide complet en français
-- Installation détaillée pour Windows (Scoop, Chocolatey, manuelle)
-- Utilisation avec Playwright
-- Comprendre le rapport Allure
-- Personnalisation
-- Dépannage
-- Bonnes pratiques
+**Created**: Complete guide in English
+- Detailed installation for Windows (Scoop, Chocolatey, manual)
+- Usage with Playwright
+- Understanding Allure report
+- Customization
+- Troubleshooting
+- Best practices
 
-## 🎯 Étapes Suivantes pour l'Utilisateur
+## 🎯 Next Steps for You
 
-### 1. Installer Allure sur Windows
+### Step 1: Install Allure CLI
 
-Choisir une des méthodes :
+Choose one method:
 
-#### Option A : Via Scoop (Recommandé)
+#### Option A (Recommended) - Via Scoop:
 ```powershell
-# Installer Scoop si nécessaire
+# Install Scoop if needed
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 
-# Installer Allure
+# Install Allure
 scoop install allure
 ```
 
-#### Option B : Via Chocolatey
+#### Option B - Via Chocolatey:
 ```powershell
-# Installer Chocolatey si nécessaire
+# Install Chocolatey if needed
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# Installer Allure
+# Install Allure
 choco install allure
 ```
 
-#### Option C : Installation Manuelle
-1. Télécharger depuis : https://github.com/allure-framework/allure2/releases
-2. Extraire dans `C:\allure`
-3. Ajouter `C:\allure\bin` au PATH système
+#### Option C: Manual Installation
+1. Download from: https://github.com/allure-framework/allure2/releases
+2. Extract to `C:\allure`
+3. Add `C:\allure\bin` to system PATH
 
-### 2. Vérifier l'Installation
+### Step 2: Verify Installation
 
 ```powershell
 allure --version
 ```
 
-Devrait afficher : `2.XX.X`
+Should display: `2.XX.X`
 
-### 3. Lancer les Tests avec Allure
+### Step 3: Run Tests with Allure
 
 ```bash
 cd "ui tests"
 
-# Lancer les tests (génère allure-results/)
+# Run tests (generates allure-results/)
 npm test
 
-# Générer et ouvrir le rapport Allure
+# Generate and open Allure report
 npm run test:allure
 ```
 
-## 📊 Ce que vous allez voir dans Allure
+## 📊 What You'll See in Allure
 
-1. **Dashboard** avec statistiques complètes
-2. **Graphiques** de distribution et tendances
-3. **Timeline** d'exécution des tests
-4. **Screenshots** automatiques en cas d'échec
-5. **Vidéos** des tests échoués
-6. **Stack traces** détaillées
-7. **Catégorisation** des tests (Failed, Flaky, etc.)
-8. **Historique** des exécutions précédentes
+1. **Dashboard** with complete statistics
+2. **Graphs** of distribution and trends
+3. **Timeline** of test execution
+4. **Automatic screenshots** on failure
+5. **Videos** of failed tests
+6. **Detailed stack traces**
+7. **Categorization** of tests (Failed, Flaky, etc.)
+8. **History** of previous executions
 
-## 🔄 Workflow Recommandé
+## 🔄 Recommended Workflow
 
 ```bash
-# 1. Nettoyer les anciens résultats
+# 1. Clean old results
 npm run test:clean
 
-# 2. Lancer les tests
+# 2. Run tests
 npm test
 
-# 3. Générer et visualiser le rapport Allure
+# 3. Generate and view Allure report
 npm run test:allure
 
-# Ou en une seule ligne
+# Or in one line
 npm run test:clean && npm test && npm run test:allure
 ```
 
-## 📚 Documentation Complète
+## 📚 Complete Documentation
 
-- **README.md** : Documentation générale du projet avec section Allure
-- **ALLURE_GUIDE.md** : Guide détaillé en français pour Allure
-- **TEST_GUIDE.md** : Guide complet des tests Playwright
+- **README.md**: General project documentation with Allure section
+- **ALLURE_GUIDE.md**: Detailed guide for Allure
+- **TEST_GUIDE.md**: Complete Playwright tests guide
 
-## ✅ Vérification de l'Installation
+## ✅ Installation Verification
 
-Après avoir installé Allure, exécutez :
+After installing Allure, run:
 
 ```bash
-# Vérifier Allure
+# Check Allure
 allure --version
 
-# Vérifier les dépendances npm
+# Check npm dependencies
 cd "ui tests"
 npm list allure-playwright
 
-# Tester l'intégration complète
+# Test complete integration
 npm run test:smoke && npm run test:allure
 ```
 
-## 🎨 Personnalisation Avancée
+## 🎨 Advanced Customization
 
-Pour personnaliser davantage Allure, modifier `playwright.config.js` :
+To further customize Allure, modify `playwright.config.js`:
 
 ```javascript
 ['allure-playwright', {
-  detail: true,                    // Niveau de détail
-  outputFolder: 'allure-results',  // Dossier de sortie
-  suiteTitle: true,                // Afficher les titres de suite
-  categories: [...],               // Catégories personnalisées
-  environmentInfo: {...}           // Informations d'environnement
+  detail: true,                    // Detail level
+  outputFolder: 'allure-results',  // Output folder
+  suiteTitle: true,                // Display suite titles
+  categories: [...],               // Custom categories
+  environmentInfo: {...}           // Environment information
 }]
 ```
 
-## 🚨 Problèmes Courants
+## 🚨 Common Issues
 
-### Allure n'est pas reconnu
-**Solution** : Allure n'est pas dans le PATH. Réinstaller avec Scoop ou Chocolatey.
+### Allure not recognized
+**Solution**: Allure not in PATH. Reinstall with Scoop or Chocolatey.
 
-### Aucun résultat trouvé
-**Solution** : Les tests n'ont pas été lancés. Exécuter `npm test` d'abord.
+### No results found
+**Solution**: Tests haven't been run. Execute `npm test` first.
 
-### Port 8080 occupé
-**Solution** : Un autre processus utilise le port. Tuer le processus ou utiliser :
+### Port 8080 occupied
+**Solution**: Another process is using the port. Kill process or use:
 ```bash
 allure open allure-report --port 9999
 ```
 
-## 🎉 Prêt à l'Emploi
+## 🎉 Ready to Use
 
-Tout est configuré ! Il ne reste plus qu'à :
-1. ✅ Installer Allure sur votre système
-2. ✅ Lancer les tests
-3. ✅ Générer et explorer le rapport
+Everything is configured! Just need to:
+1. ✅ Install Allure on your system
+2. ✅ Run tests
+3. ✅ Generate and explore the report
 
-**Commande rapide** :
+**Quick command**:
 ```bash
 npm test && npm run test:allure
 ```
 
-Bonne exploration des rapports Allure ! 🚀
+Happy exploring with Allure Reports! 🚀

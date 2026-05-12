@@ -1,64 +1,64 @@
-# Allure Report - Guide d'Installation et d'Utilisation
+# Allure Report - Installation and Usage Guide
 
-## 🎯 Qu'est-ce qu'Allure Report ?
+## 🎯 What is Allure Report?
 
-Allure Report est un framework de reporting flexible et léger qui génère des rapports HTML interactifs et riches pour vos tests automatisés.
+Allure Report is a flexible, lightweight reporting framework that generates interactive and rich HTML reports for your automated tests.
 
-### Avantages d'Allure
+### Allure Advantages
 
-✅ **Rapports Visuels Riches** - Graphiques, tendances, chronologie  
-✅ **Détails Complets** - Screenshots, vidéos, logs, stack traces  
-✅ **Historique** - Comparaison entre différentes exécutions  
-✅ **Catégorisation** - Organisation par suites, features, severity  
-✅ **Détection de Tests Flaky** - Identifie les tests instables  
-✅ **Intégration CI/CD** - Compatible avec Jenkins, GitHub Actions, etc.  
+✅ **Rich Visual Reports** - Graphs, trends, timeline  
+✅ **Complete Details** - Screenshots, videos, logs, stack traces  
+✅ **History** - Comparison between different executions  
+✅ **Categorization** - Organization by suites, features, severity  
+✅ **Flaky Test Detection** - Identifies unstable tests  
+✅ **CI/CD Integration** - Compatible with Jenkins, GitHub Actions, etc.  
 
-## 📦 Installation d'Allure
+## 📦 Installing Allure
 
 ### Windows
 
-#### Option 1 : Via Scoop (Recommandé)
+#### Option 1: Via Scoop (Recommended)
 
-1. **Installer Scoop** (si pas déjà installé):
+1. **Install Scoop** (if not already installed):
 ```powershell
-# Ouvrir PowerShell en tant qu'administrateur
+# Open PowerShell as administrator
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 ```
 
-2. **Installer Allure via Scoop:**
+2. **Install Allure via Scoop:**
 ```powershell
 scoop install allure
 ```
 
-#### Option 2 : Via Chocolatey
+#### Option 2: Via Chocolatey
 
-1. **Installer Chocolatey** (si pas déjà installé):
+1. **Install Chocolatey** (if not already installed):
 ```powershell
-# PowerShell en tant qu'administrateur
+# PowerShell as administrator
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 ```
 
-2. **Installer Allure via Chocolatey:**
+2. **Install Allure via Chocolatey:**
 ```powershell
 choco install allure
 ```
 
-#### Option 3 : Installation Manuelle
+#### Option 3: Manual Installation
 
-1. **Télécharger Allure:**
-   - Aller sur: https://github.com/allure-framework/allure2/releases
-   - Télécharger la dernière version (ex: `allure-2.XX.X.zip`)
+1. **Download Allure:**
+   - Go to: https://github.com/allure-framework/allure2/releases
+   - Download the latest version (e.g., `allure-2.XX.X.zip`)
 
-2. **Extraire l'archive:**
-   - Extraire dans `C:\allure` (ou autre dossier)
+2. **Extract the archive:**
+   - Extract to `C:\allure` (or another folder)
 
-3. **Ajouter au PATH:**
-   - Ouvrir "Variables d'environnement système"
-   - Ajouter `C:\allure\bin` au PATH
-   - Redémarrer le terminal
+3. **Add to PATH:**
+   - Open "System Environment Variables"
+   - Add `C:\allure\bin` to PATH
+   - Restart terminal
 
 ### macOS
 
@@ -77,7 +77,7 @@ sudo apt-get install allure
 # Fedora
 sudo yum install allure
 
-# Ou installation manuelle
+# Or manual installation
 wget https://github.com/allure-framework/allure2/releases/download/2.XX.X/allure-2.XX.X.tgz
 tar -zxvf allure-2.XX.X.tgz
 sudo mv allure-2.XX.X /opt/allure
@@ -85,131 +85,131 @@ echo 'export PATH="/opt/allure/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## ✅ Vérifier l'Installation
+## ✅ Verify Installation
 
 ```bash
 allure --version
 ```
 
-Vous devriez voir quelque chose comme:
+You should see something like:
 ```
 2.XX.X
 ```
 
-## 🚀 Utilisation avec Playwright
+## 🚀 Using with Playwright
 
-### 1. Installation des Dépendances
+### 1. Install Dependencies
 
 ```bash
 cd "ui tests"
 npm install
 ```
 
-Le package `allure-playwright` est déjà configuré dans `package.json`.
+The `allure-playwright` package is already configured in `package.json`.
 
-### 2. Lancer les Tests
+### 2. Run Tests
 
 ```bash
 npm test
 ```
 
-Les résultats seront automatiquement enregistrés dans `allure-results/`.
+Results will be automatically saved in `allure-results/`.
 
-### 3. Générer et Ouvrir le Rapport
+### 3. Generate and Open Report
 
 ```bash
 npm run test:allure
 ```
 
-Cette commande :
-1. Génère le rapport HTML depuis `allure-results/`
-2. Ouvre automatiquement le rapport dans votre navigateur par défaut
+This command:
+1. Generates HTML report from `allure-results/`
+2. Automatically opens the report in your default browser
 
-### 4. Commandes Allure Disponibles
+### 4. Available Allure Commands
 
 ```bash
-# Générer et ouvrir en une commande
+# Generate and open in one command
 npm run test:allure
 
-# Générer le rapport uniquement
+# Generate report only
 npm run test:allure:generate
 
-# Ouvrir le rapport existant
+# Open existing report
 npm run test:allure:open
 
-# Nettoyer tous les rapports
+# Clean all reports
 npm run test:clean
 ```
 
-## 📊 Comprendre le Rapport Allure
+## 📊 Understanding the Allure Report
 
-### Page d'Accueil (Overview)
+### Home Page (Overview)
 
-- **Total Tests** : Nombre total de tests exécutés
-- **Passed/Failed/Broken** : Statistiques de réussite
-- **Duration** : Temps d'exécution total
-- **Trend** : Évolution par rapport aux exécutions précédentes
+- **Total Tests**: Number of tests executed
+- **Passed/Failed/Broken**: Success statistics
+- **Duration**: Total execution time
+- **Trend**: Evolution compared to previous executions
 
-### Onglets Principaux
+### Main Tabs
 
 #### 1. **Overview** 📈
-- Vue d'ensemble des résultats
-- Graphiques de distribution
-- Statistiques générales
+- Results overview
+- Distribution graphs
+- General statistics
 
 #### 2. **Categories** 🏷️
-- Tests groupés par catégorie d'erreur
+- Tests grouped by error category
 - Failed tests
-- Flaky tests (tests instables)
-- Tests cassés
+- Flaky tests (unstable tests)
+- Broken tests
 
 #### 3. **Suites** 📂
-- Organisation par fichiers de test
-- Structure hiérarchique des tests
-- Résultats par suite
+- Organization by test files
+- Hierarchical test structure
+- Results by suite
 
 #### 4. **Graphs** 📊
-- **Status**: Distribution Passed/Failed
-- **Severity**: Tests par niveau de criticité
-- **Duration**: Temps d'exécution des tests
-- **Timeline**: Chronologie d'exécution
+- **Status**: Passed/Failed distribution
+- **Severity**: Tests by criticality level
+- **Duration**: Test execution time
+- **Timeline**: Execution chronology
 
 #### 5. **Timeline** ⏱️
-- Vue chronologique de l'exécution
-- Tests parallèles visualisés
-- Durée de chaque test
+- Chronological execution view
+- Parallel tests visualized
+- Duration of each test
 
 #### 6. **Behaviors** 🎯
-- Organisation par fonctionnalités métier
-- Features et stories
-- Vue orientée BDD
+- Organization by business features
+- Features and stories
+- BDD-oriented view
 
 #### 7. **Packages** 📦
-- Organisation par packages/dossiers
-- Structure du projet
+- Organization by packages/folders
+- Project structure
 
-### Détails d'un Test
+### Test Details
 
-Quand vous cliquez sur un test, vous voyez :
+When you click on a test, you see:
 
-1. **Test Body** : Nom et description
-2. **Steps** : Étapes détaillées avec timestamps
-3. **Parameters** : Paramètres du test
-4. **Attachments** : Screenshots, videos, logs
-5. **Stack Trace** : Erreur détaillée (si échec)
-6. **History** : Historique sur plusieurs runs
-7. **Retries** : Tentatives de retry (si configuré)
+1. **Test Body**: Name and description
+2. **Steps**: Detailed steps with timestamps
+3. **Parameters**: Test parameters
+4. **Attachments**: Screenshots, videos, logs
+5. **Stack Trace**: Detailed error (if failed)
+6. **History**: History over multiple runs
+7. **Retries**: Retry attempts (if configured)
 
-## 🎨 Personnalisation d'Allure
+## 🎨 Customizing Allure
 
-### Configuration dans playwright.config.js
+### Configuration in playwright.config.js
 
 ```javascript
 ['allure-playwright', {
-  detail: true,                    // Détails complets
-  outputFolder: 'allure-results',  // Dossier de sortie
-  suiteTitle: true,                // Titres de suites
-  categories: [                     // Catégories personnalisées
+  detail: true,                    // Full details
+  outputFolder: 'allure-results',  // Output folder
+  suiteTitle: true,                // Suite titles
+  categories: [                     // Custom categories
     {
       name: 'Failed tests',
       matchedStatuses: ['failed']
@@ -220,7 +220,7 @@ Quand vous cliquez sur un test, vous voyez :
       messageRegex: '.*retry.*'
     }
   ],
-  environmentInfo: {                // Info environnement
+  environmentInfo: {                // Environment info
     'Test Environment': 'Local',
     'Browser': 'Chromium',
     'Base URL': 'https://automationintesting.online/'
@@ -228,103 +228,103 @@ Quand vous cliquez sur un test, vous voyez :
 }]
 ```
 
-### Ajouter des Annotations dans les Tests
+### Adding Annotations in Tests
 
 ```javascript
 import { test } from '@playwright/test';
 
-test('Mon test important', async ({ page }) => {
-  // Les annotations Allure sont automatiques avec allure-playwright
-  // Pas besoin d'importer ou configurer quoi que ce soit
+test('My important test', async ({ page }) => {
+  // Allure annotations are automatic with allure-playwright
+  // No need to import or configure anything
   
   await page.goto('https://example.com');
-  // ... votre test
+  // ... your test
 });
 ```
 
-## 🔧 Dépannage
+## 🔧 Troubleshooting
 
-### Erreur : "allure: command not found"
+### Error: "allure: command not found"
 
-**Solution :** Allure n'est pas dans le PATH.
+**Solution:** Allure is not in PATH.
 
 ```powershell
-# Vérifier l'installation
+# Check installation
 allure --version
 
-# Si erreur, réinstaller avec Scoop ou Chocolatey
+# If error, reinstall with Scoop or Chocolatey
 scoop install allure
 ```
 
-### Erreur : "No allure-results found"
+### Error: "No allure-results found"
 
-**Solution :** Les tests n'ont pas encore été exécutés.
+**Solution:** Tests haven't been executed yet.
 
 ```bash
-# D'abord lancer les tests
+# First run tests
 npm test
 
-# Puis générer le rapport
+# Then generate report
 npm run test:allure:generate
 ```
 
-### Le rapport ne s'ouvre pas automatiquement
+### Report doesn't open automatically
 
-**Solution :** Ouvrir manuellement.
+**Solution:** Open manually.
 
 ```bash
 npm run test:allure:generate
-# Puis ouvrir allure-report/index.html dans un navigateur
+# Then open allure-report/index.html in a browser
 ```
 
-### Port 8080 déjà utilisé
+### Port 8080 already in use
 
-**Solution :** Allure utilise le port 8080 par défaut.
+**Solution:** Allure uses port 8080 by default.
 
 ```bash
-# Tuer le processus ou utiliser un autre port
+# Kill the process or use another port
 allure open allure-report --port 9999
 ```
 
-## 📚 Ressources
+## 📚 Resources
 
-- [Documentation Allure](https://docs.qameta.io/allure/)
+- [Allure Documentation](https://docs.qameta.io/allure/)
 - [Allure Playwright Plugin](https://www.npmjs.com/package/allure-playwright)
 - [Allure GitHub](https://github.com/allure-framework/allure2)
-- [Exemples de Rapports](https://demo.qameta.io/allure/)
+- [Report Examples](https://demo.qameta.io/allure/)
 
-## 🎓 Bonnes Pratiques
+## 🎓 Best Practices
 
-1. **Nettoyer les anciens résultats** avant chaque run complet :
+1. **Clean old results** before each complete run:
    ```bash
    npm run test:clean && npm test
    ```
 
-2. **Conserver l'historique** pour voir les tendances :
+2. **Keep history** to see trends:
    ```bash
-   # Ne pas supprimer allure-report/history/
+   # Don't delete allure-report/history/
    ```
 
-3. **Utiliser des noms de tests descriptifs** :
+3. **Use descriptive test names**:
    ```javascript
    test('Should display booking form when user scrolls to booking section', ...)
    ```
 
-4. **Organiser par suites logiques** :
+4. **Organize by logical suites**:
    ```javascript
    test.describe('Booking Form', () => {
      test.describe('Validation', () => {
-       // tests de validation
+       // validation tests
      });
    });
    ```
 
-5. **Publier les rapports Allure en CI/CD** pour partager avec l'équipe.
+5. **Publish Allure reports in CI/CD** to share with the team.
 
-## 🚀 Prochaines Étapes
+## 🚀 Next Steps
 
-1. ✅ Installer Allure (`scoop install allure`)
-2. ✅ Lancer les tests (`npm test`)
-3. ✅ Générer le rapport (`npm run test:allure`)
-4. 📊 Explorer les fonctionnalités d'Allure
-5. 🔄 Intégrer dans votre pipeline CI/CD
+1. ✅ Install Allure (`scoop install allure`)
+2. ✅ Run tests (`npm test`)
+3. ✅ Generate report (`npm run test:allure`)
+4. 📊 Explore Allure features
+5. 🔄 Integrate into your CI/CD pipeline

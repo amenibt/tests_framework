@@ -102,16 +102,31 @@ tests_orangwebapp-master/
 
 ## 🚀 Quick Start
 
+> **⚡ New to local testing?** Run our automated setup checker:
+> ```powershell
+> .\check-setup.ps1
+> ```
+> This will verify all prerequisites and guide you through any missing setup steps.
+>
+> 📖 **Detailed Setup Guide**: [LOCAL_SETUP.md](LOCAL_SETUP.md) - Complete local environment setup
+
 ### Prerequisites
 
 ```bash
 # For UI tests
-node -v  # Node.js 16+ required
+node -v  # Node.js 18+ required (Playwright 1.58.2+)
 npm -v
+
+# For Allure reports (optional but recommended)
+allure --version
 
 # For API tests
 npm install -g @usebruno/cli
 ```
+
+⚠️ **Important**: Playwright 1.58.2 requires **Node.js 18 or higher**. If you have an older version:
+- **Windows**: `winget install OpenJS.NodeJS.LTS`
+- **Download**: [nodejs.org](https://nodejs.org/)
 
 ### Installation
 
@@ -122,8 +137,27 @@ cd "tests_orangwebapp-master"
 # Install UI test dependencies
 cd "ui tests"
 npm install
+
+# Install Playwright browsers (if needed)
+npx playwright install
 cd ..
 ```
+
+### ✅ Verify Setup
+
+Run the automated checker to ensure everything is configured correctly:
+
+```powershell
+# From project root
+.\check-setup.ps1
+```
+
+This script checks:
+- ✅ Node.js version (18+)
+- ✅ npm installation
+- ✅ Allure CLI (optional)
+- ✅ Project dependencies
+- ✅ Playwright browsers
 
 ---
 
@@ -247,7 +281,7 @@ allure --version
 ```
 
 📚 **Documentation:**
-- [ui tests/ALLURE_GUIDE.md](ui tests/ALLURE_GUIDE.md) - Complete Allure guide (French)
+- [ui tests/ALLURE_GUIDE.md](ui tests/ALLURE_GUIDE.md) - Complete Allure guide
 - [ui tests/ALLURE_SETUP.md](ui tests/ALLURE_SETUP.md) - Setup summary
 - [ui tests/README.md](ui tests/README.md) - Full UI tests documentation
 - [.github/ALLURE_CI_SETUP.md](.github/ALLURE_CI_SETUP.md) - Allure CI/CD configuration
@@ -256,13 +290,23 @@ allure --version
 
 **Automatic report generation** on every push to `main`/`master`:
 
+**✨ New Features:**
+- 📊 **Test result summary** in workflow dashboard
+- 🎯 **Automatic PR comments** with report links
+- 📦 **Build metadata** embedded in reports
+- 📈 **Test count tracking** across runs
+- 🔄 **Multi-browser consolidation** (Chromium + Firefox + WebKit)
+
+**Access Reports:**
+
 1. **Via GitHub Artifacts** (available immediately after workflow):
    - Go to **Actions** tab
    - Click on the workflow run
-   - Download `allure-report` artifact
+   - View summary with test counts and status
+   - Download `allure-report` artifact (30-day retention)
    - Extract and open `index.html`
 
-2. **Via GitHub Pages** (requires one-time setup):
+2. **Via GitHub Pages** (public URL, requires one-time setup):
    ```
    https://<your-username>.github.io/<repo-name>/allure-report/
    ```
@@ -274,11 +318,22 @@ allure --version
    
    See [.github/ALLURE_CI_SETUP.md](.github/ALLURE_CI_SETUP.md) for detailed instructions.
 
-**Features:**
-- ✅ Consolidated reports from all 3 browsers
-- ✅ Automatic history tracking
-- ✅ Public URL for team access
-- ✅ Updated on every push
+3. **Via Pull Request Comments** (automatic):
+   - On every PR, a bot comment is posted with direct links to:
+     - 📊 Latest Allure Report (GitHub Pages)
+     - 📦 Workflow artifacts
+     - 🔗 Actions run details
+
+**Workflow Triggers:**
+- ✅ Push to `main`/`master` branches
+- ✅ Pull requests
+- ✅ Manual trigger (workflow_dispatch)
+- ✅ Scheduled: Monday-Friday at 9:00 AM
+
+**Retention:**
+- Allure Report: 30 days
+- Playwright HTML Reports: 14 days (per browser)
+- Test Results: 7 days (per browser)
 
 ### API Test Reports
 

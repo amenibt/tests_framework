@@ -1,220 +1,220 @@
 # GitHub Actions - Allure Report Configuration
 
-## ✅ Ce qui a été configuré
+## ✅ What Has Been Configured
 
-Le workflow GitHub Actions (`.github/workflows/ci.yml`) a été mis à jour pour générer automatiquement des rapports Allure pour chaque exécution de tests.
+The GitHub Actions workflow (`.github/workflows/ci.yml`) has been updated to automatically generate Allure reports for each test execution.
 
-## 🔄 Workflow de Génération
+## 🔄 Generation Workflow
 
-### Étape 1 : Exécution des Tests
-- Les tests Playwright s'exécutent sur 3 browsers (Chromium, Firefox, WebKit)
-- Chaque browser génère des résultats Allure dans `allure-results/`
-- Les résultats sont uploadés comme artifacts GitHub
+### Step 1: Test Execution
+- Playwright tests run on 3 browsers (Chromium, Firefox, WebKit)
+- Each browser generates Allure results in `allure-results/`
+- Results are uploaded as GitHub artifacts
 
-### Étape 2 : Génération du Rapport Consolidé
-Un job séparé `generate-allure-report` :
-1. **Télécharge** tous les résultats Allure de tous les browsers
-2. **Installe** Java 17 (requis pour Allure)
-3. **Installe** Allure CLI (version 2.25.0)
-4. **Génère** le rapport HTML consolidé
-5. **Upload** le rapport comme artifact (conservé 30 jours)
-6. **Déploie** sur GitHub Pages (branches main/master uniquement)
+### Step 2: Consolidated Report Generation
+A separate `generate-allure-report` job:
+1. **Downloads** all Allure results from all browsers
+2. **Installs** Java 17 (required for Allure)
+3. **Installs** Allure CLI (version 2.25.0)
+4. **Generates** consolidated HTML report
+5. **Uploads** report as artifact (retained for 30 days)
+6. **Deploys** to GitHub Pages (main/master branches only)
 
-## 📊 Accéder aux Rapports Allure
+## 📊 Accessing Allure Reports
 
-### Option 1 : Via GitHub Artifacts (Immédiat)
+### Option 1: Via GitHub Artifacts (Immediate)
 
-Après chaque exécution de workflow :
+After each workflow execution:
 
-1. Aller sur l'onglet **Actions** du repository
-2. Cliquer sur le workflow exécuté
-3. Faire défiler jusqu'à **Artifacts**
-4. Télécharger `allure-report.zip`
-5. Extraire et ouvrir `index.html` dans un navigateur
+1. Go to the **Actions** tab of the repository
+2. Click on the executed workflow
+3. Scroll down to **Artifacts**
+4. Download `allure-report.zip`
+5. Extract and open `index.html` in a browser
 
-### Option 2 : Via GitHub Pages (Automatique)
+### Option 2: Via GitHub Pages (Automatic)
 
-**Configuration initiale requise :**
+**Initial configuration required:**
 
-1. **Activer GitHub Pages :**
-   - Aller dans **Settings** > **Pages**
-   - Source : Sélectionner `gh-pages` branch
-   - Dossier : `/ (root)`
-   - Sauvegarder
+1. **Enable GitHub Pages:**
+   - Go to **Settings** > **Pages**
+   - Source: Select `gh-pages` branch
+   - Folder: `/ (root)`
+   - Save
 
-2. **Accéder au rapport :**
+2. **Access the report:**
    ```
-   https://<votre-username>.github.io/<nom-repo>/allure-report/
+   https://<your-username>.github.io/<repo-name>/allure-report/
    ```
    
-   Exemple :
+   Example:
    ```
    https://amenibentaieb.github.io/tests_orangwebapp/allure-report/
    ```
 
-3. **Le rapport est automatiquement mis à jour :**
-   - À chaque push sur `main` ou `master`
-   - Le rapport est publié sur GitHub Pages
-   - Accessible via l'URL ci-dessus
+3. **Report is automatically updated:**
+   - On every push to `main` or `master`
+   - Report is published to GitHub Pages
+   - Accessible via the URL above
 
-## 📁 Structure des Artifacts
+## 📁 Artifacts Structure
 
-Après chaque workflow, vous trouverez :
+After each workflow, you'll find:
 
 ```
 Artifacts:
-├── playwright-report-chromium/     # Rapport HTML Playwright (Chromium)
-├── playwright-report-firefox/      # Rapport HTML Playwright (Firefox)
-├── playwright-report-webkit/       # Rapport HTML Playwright (WebKit)
-├── test-results-chromium/          # Screenshots/vidéos (Chromium)
-├── test-results-firefox/           # Screenshots/vidéos (Firefox)
-├── test-results-webkit/            # Screenshots/vidéos (WebKit)
-├── allure-results-chromium/        # Résultats bruts Allure (Chromium)
-├── allure-results-firefox/         # Résultats bruts Allure (Firefox)
-├── allure-results-webkit/          # Résultats bruts Allure (WebKit)
-└── allure-report/                  # 🎯 Rapport Allure consolidé
+├── playwright-report-chromium/     # Playwright HTML report (Chromium)
+├── playwright-report-firefox/      # Playwright HTML report (Firefox)
+├── playwright-report-webkit/       # Playwright HTML report (WebKit)
+├── test-results-chromium/          # Screenshots/videos (Chromium)
+├── test-results-firefox/           # Screenshots/videos (Firefox)
+├── test-results-webkit/            # Screenshots/videos (WebKit)
+├── allure-results-chromium/        # Allure raw results (Chromium)
+├── allure-results-firefox/         # Allure raw results (Firefox)
+├── allure-results-webkit/          # Allure raw results (WebKit)
+└── allure-report/                  # 🎯 Consolidated Allure report
 ```
 
-## 🎨 Fonctionnalités du Rapport Allure en CI
+## 🎨 Allure Report Features in CI
 
-Le rapport généré inclut :
+The generated report includes:
 
-- ✅ **Résultats consolidés** de tous les browsers
-- ✅ **Graphiques et statistiques** détaillés
-- ✅ **Timeline d'exécution** des tests
-- ✅ **Screenshots automatiques** en cas d'échec
-- ✅ **Catégorisation** (Failed, Flaky, Passed)
-- ✅ **Informations d'environnement** (Browser, Base URL, etc.)
-- ✅ **Historique** des exécutions (si GitHub Pages est activé)
+- ✅ **Consolidated results** from all browsers
+- ✅ **Detailed graphs and statistics**
+- ✅ **Test execution timeline**
+- ✅ **Automatic screenshots** on failure
+- ✅ **Categorization** (Failed, Flaky, Passed)
+- ✅ **Environment information** (Browser, Base URL, etc.)
+- ✅ **Execution history** (if GitHub Pages is enabled)
 
-## 🔧 Configuration GitHub Pages (Détaillé)
+## 🔧 GitHub Pages Configuration (Detailed)
 
-### Étape par Étape :
+### Step by Step:
 
-1. **Aller dans Settings du repository**
+1. **Go to repository Settings**
    ```
    https://github.com/<username>/<repo>/settings
    ```
 
-2. **Naviguer vers Pages** (dans le menu latéral gauche)
+2. **Navigate to Pages** (in the left sidebar)
 
-3. **Configurer la source :**
-   - **Source** : Deploy from a branch
-   - **Branch** : `gh-pages`
-   - **Folder** : `/ (root)`
+3. **Configure the source:**
+   - **Source**: Deploy from a branch
+   - **Branch**: `gh-pages`
+   - **Folder**: `/ (root)`
 
-4. **Cliquer sur Save**
+4. **Click Save**
 
-5. **Attendre le déploiement** (quelques minutes)
+5. **Wait for deployment** (a few minutes)
 
-6. **Vérifier l'URL** affichée :
+6. **Verify the URL** displayed:
    ```
    Your site is live at https://<username>.github.io/<repo>/
    ```
 
-7. **Accéder au rapport Allure** :
+7. **Access Allure report**:
    ```
    https://<username>.github.io/<repo>/allure-report/
    ```
 
-### Remarques Importantes :
+### Important Notes:
 
-- ⚠️ Le rapport est **PUBLIC** si le repository est public
-- ⚠️ Pour les repos privés, seuls les membres avec accès peuvent voir le rapport
-- ⚠️ La première génération crée automatiquement la branche `gh-pages`
-- ⚠️ Ne modifiez pas manuellement la branche `gh-pages`
+- ⚠️ Report is **PUBLIC** if repository is public
+- ⚠️ For private repos, only members with access can view the report
+- ⚠️ First generation automatically creates the `gh-pages` branch
+- ⚠️ Don't manually modify the `gh-pages` branch
 
-## 📈 Historique des Rapports
+## 📈 Report History
 
-Une fois GitHub Pages activé, Allure conserve l'historique :
+Once GitHub Pages is enabled, Allure keeps history:
 
-- **Tendances** d'exécution au fil du temps
-- **Comparaison** entre les exécutions
-- **Graphiques de progression** (pass rate, durée, etc.)
+- **Execution trends** over time
+- **Comparison** between executions
+- **Progress graphs** (pass rate, duration, etc.)
 
-L'historique est conservé automatiquement dans `allure-report/history/`.
+History is automatically kept in `allure-report/history/`.
 
-## 🚀 Workflow Complet
+## 🚀 Complete Workflow
 
-### Développement Local :
+### Local Development:
 ```bash
 cd "ui tests"
 npm test
 npm run test:allure
 ```
 
-### CI/CD (Automatique) :
+### CI/CD (Automatic):
 ```
-1. Push vers GitHub
-2. GitHub Actions lance les tests
-3. Tests s'exécutent sur 3 browsers
-4. Résultats Allure générés
-5. Rapport consolidé créé
-6. Rapport publié sur GitHub Pages
+1. Push to GitHub
+2. GitHub Actions launches tests
+3. Tests run on 3 browsers
+4. Allure results generated
+5. Consolidated report created
+6. Report published to GitHub Pages
 7. Accessible via URL
 ```
 
-## 🔍 Vérification du Workflow
+## 🔍 Workflow Verification
 
-### Vérifier que tout fonctionne :
+### Verify everything works:
 
-1. **Faire un push vers main/master :**
+1. **Make a push to main/master:**
    ```bash
    git add .
    git commit -m "test: verify Allure report generation"
    git push origin main
    ```
 
-2. **Aller sur Actions :**
+2. **Go to Actions:**
    ```
    https://github.com/<username>/<repo>/actions
    ```
 
-3. **Vérifier les étapes :**
+3. **Verify steps:**
    - ✅ Run Playwright Tests (Chromium, Firefox, WebKit)
    - ✅ Generate Allure Report
    - ✅ Upload Allure Report (artifact)
    - ✅ Deploy to GitHub Pages
 
-4. **Vérifier les artifacts :**
-   - Cliquer sur le workflow
-   - Descendre jusqu'à "Artifacts"
-   - Vérifier que `allure-report` est présent
+4. **Check artifacts:**
+   - Click on the workflow
+   - Scroll down to "Artifacts"
+   - Verify `allure-report` is present
 
-5. **Accéder au rapport sur GitHub Pages :**
+5. **Access report on GitHub Pages:**
    ```
    https://<username>.github.io/<repo>/allure-report/
    ```
 
-## 📊 Résumé du Workflow
+## 📊 Workflow Summary
 
 ```yaml
 jobs:
   test:
-    # Exécute les tests sur 3 browsers en parallèle
-    # Upload allure-results pour chaque browser
+    # Runs tests on 3 browsers in parallel
+    # Uploads allure-results for each browser
     
   generate-allure-report:
-    needs: test  # Attend que tous les tests soient terminés
-    # Télécharge tous les résultats
-    # Installe Allure CLI
-    # Génère le rapport consolidé
-    # Upload comme artifact
-    # Déploie sur GitHub Pages (main/master uniquement)
+    needs: test  # Waits for all tests to complete
+    # Downloads all results
+    # Installs Allure CLI
+    # Generates consolidated report
+    # Uploads as artifact
+    # Deploys to GitHub Pages (main/master only)
 ```
 
-## 🎯 Avantages de cette Configuration
+## 🎯 Benefits of This Configuration
 
-1. **Rapports Automatiques** - Générés à chaque push
-2. **Consolidation Multi-Browser** - Un seul rapport pour tous les browsers
-3. **Accessibilité** - Via GitHub Pages, pas besoin de télécharger
-4. **Historique** - Tendances et comparaisons au fil du temps
-5. **Artifacts** - Conservés 30 jours pour référence
-6. **CI/CD Ready** - Intégration complète dans le pipeline
+1. **Automatic Reports** - Generated on every push
+2. **Multi-Browser Consolidation** - Single report for all browsers
+3. **Accessibility** - Via GitHub Pages, no download needed
+4. **History** - Trends and comparisons over time
+5. **Artifacts** - Retained for 30 days for reference
+6. **CI/CD Ready** - Complete pipeline integration
 
-## 🛠️ Personnalisation
+## 🛠️ Customization
 
-### Changer la rétention des artifacts :
+### Change artifact retention:
 
 ```yaml
 - name: Upload Allure Report
@@ -222,58 +222,58 @@ jobs:
   with:
     name: allure-report
     path: allure-report/
-    retention-days: 60  # Augmenter à 60 jours
+    retention-days: 60  # Increase to 60 days
 ```
 
-### Désactiver GitHub Pages :
+### Disable GitHub Pages:
 
-Supprimer ou commenter cette section :
+Remove or comment out this section:
 
 ```yaml
 - name: Deploy Allure Report to GitHub Pages
   uses: peaceiris/actions-gh-pages@v3
-  # ... reste de la configuration
+  # ... rest of configuration
 ```
 
-### Changer la version d'Allure :
+### Change Allure version:
 
 ```yaml
 - name: Install Allure CLI
   run: |
     wget https://github.com/allure-framework/allure2/releases/download/2.26.0/allure-2.26.0.tgz
-    # ... reste de l'installation
+    # ... rest of installation
 ```
 
-## 📚 Ressources
+## 📚 Resources
 
-- **GitHub Actions Documentation** : https://docs.github.com/en/actions
-- **GitHub Pages Documentation** : https://docs.github.com/en/pages
-- **Allure Documentation** : https://docs.qameta.io/allure/
-- **peaceiris/actions-gh-pages** : https://github.com/peaceiris/actions-gh-pages
+- **GitHub Actions Documentation**: https://docs.github.com/en/actions
+- **GitHub Pages Documentation**: https://docs.github.com/en/pages
+- **Allure Documentation**: https://docs.qameta.io/allure/
+- **peaceiris/actions-gh-pages**: https://github.com/peaceiris/actions-gh-pages
 
-## ✅ Checklist de Configuration
+## ✅ Configuration Checklist
 
-- [x] Workflow CI mis à jour
-- [x] Upload des résultats Allure configuré
-- [x] Job de génération du rapport ajouté
-- [x] Déploiement GitHub Pages configuré
-- [ ] **Activer GitHub Pages dans Settings** (à faire manuellement)
-- [ ] Vérifier le premier déploiement
-- [ ] Accéder au rapport via l'URL GitHub Pages
+- [x] CI workflow updated
+- [x] Allure results upload configured
+- [x] Report generation job added
+- [x] GitHub Pages deployment configured
+- [ ] **Enable GitHub Pages in Settings** (manual step)
+- [ ] Verify first deployment
+- [ ] Access report via GitHub Pages URL
 
-## 🎉 Prêt à l'Emploi
+## 🎉 Ready to Use
 
-Le workflow est maintenant configuré ! 
+The workflow is now configured!
 
-**Prochaine action :**
-1. Pushez vers GitHub
-2. Allez dans Settings > Pages
-3. Activez GitHub Pages
-4. Accédez à votre rapport Allure !
+**Next action:**
+1. Push to GitHub
+2. Go to Settings > Pages
+3. Enable GitHub Pages
+4. Access your Allure report!
 
-**URL du rapport (après activation) :**
+**Report URL (after activation):**
 ```
-https://<votre-username>.github.io/<nom-repo>/allure-report/
+https://<your-username>.github.io/<repo-name>/allure-report/
 ```
 
-Bonne automatisation ! 🚀📊✨
+Happy automating! 🚀📊✨
