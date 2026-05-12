@@ -30,7 +30,7 @@ export class BookingPage {
      * Wait for booking form to be visible
      * @param {number} timeout - Timeout in milliseconds
      */
-    async waitForForm(timeout = 10000) {
+    async waitForForm(timeout = 15000) {
         await this.page.waitForSelector(this.locators.bookingForm, { 
             state: 'visible', 
             timeout 

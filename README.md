@@ -11,6 +11,7 @@ tests_orangwebapp-master/
 │
 ├── ui tests/                          # 🎨 Frontend UI Testing (Playwright)
 │   ├── tests/                         # Test specifications (42 tests)
+│   │   ├── smoke.spec.js              # Quick validation tests
 │   │   ├── booking.spec.js            # Booking form tests
 │   │   ├── home.spec.js               # Home page tests
 │   │   ├── search.spec.js             # Navigation & search tests
@@ -30,10 +31,16 @@ tests_orangwebapp-master/
 │   ├── fixtures/                      # Playwright Fixtures
 │   │   └── fixtures.js                # Custom test fixtures
 │   │
+│   ├── allure-results/                # Allure test results (generated)
+│   ├── allure-report/                 # Allure HTML report (generated)
+│   │
 │   ├── package.json                   # Dependencies
 │   ├── playwright.config.js           # Playwright config
 │   ├── README.md                      # UI tests documentation
-│   └── IMPROVEMENTS.md                # Improvement details
+│   ├── ALLURE_GUIDE.md                # 📊 Allure Report guide
+│   ├── ALLURE_SETUP.md                # 📊 Allure setup summary
+│   ├── TEST_GUIDE.md                  # Comprehensive test guide
+│   └── check-allure.ps1               # Allure verification script
 │
 ├── api bruno tests/                   # 🔌 Backend API Testing (Bruno)
 │   ├── Sample API Collection bruno/
@@ -130,6 +137,13 @@ cd "ui tests"
 # Run all UI tests
 npm test
 
+# Run smoke tests (quick validation - ~1 min)
+npm run test:smoke
+
+# Run specific test suites
+npm run test:home      # Home page tests
+npm run test:booking   # Booking tests
+
 # Run with visible browser
 npm run test:headed
 
@@ -150,8 +164,11 @@ npx playwright test --project=webkit
 # Run with debugging
 npx playwright test --debug
 
-# Generate and view HTML report
+# View Playwright HTML report
 npx playwright show-report
+
+# Generate and view Allure report (requires Allure CLI installed)
+npm run test:allure
 ```
 
 ### API Tests (Bruno)
@@ -188,8 +205,14 @@ bru run "API Orange Web App" -r --env "orange dev"
 After running UI tests, view reports:
 
 ```bash
-# Automatic HTML report
+# Playwright HTML report
 npx playwright show-report
+npm run test:report
+
+# Allure Report (advanced, interactive) ⭐ NEW
+npm run test:allure          # Generate and open
+npm run test:allure:generate # Generate only
+npm run test:allure:open     # Open existing report
 
 # View test results
 cat test-results/
@@ -197,6 +220,35 @@ cat test-results/
 # View screenshots/videos on failure
 ls test-results/*/
 ```
+
+**✨ Allure Report Features:**
+- 📊 Interactive dashboards with graphs
+- 📈 Test execution timeline
+- 📸 Automatic screenshots on failure
+- 🎥 Video recordings
+- 📉 Trend analysis across runs
+- 🏷️ Test categorization (Failed, Flaky, Passed)
+- 🔍 Detailed test steps and logs
+
+**Install Allure (required for Allure reports):**
+```bash
+# Windows (via Scoop - recommended)
+scoop install allure
+
+# Windows (via Chocolatey)
+choco install allure
+
+# macOS
+brew install allure
+
+# Verify installation
+allure --version
+```
+
+📚 **Documentation:**
+- [ui tests/ALLURE_GUIDE.md](ui tests/ALLURE_GUIDE.md) - Complete Allure guide (French)
+- [ui tests/ALLURE_SETUP.md](ui tests/ALLURE_SETUP.md) - Setup summary
+- [ui tests/README.md](ui tests/README.md) - Full UI tests documentation
 
 ### API Test Reports
 

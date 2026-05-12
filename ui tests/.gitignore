@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test results
+test-results/
+playwright-report/
+allure-results/
+allure-report/
+*.json
+!package.json
+!playwright.config.js
+
+# Videos & Screenshots
+*.webm
+*.png
+*.jpg
+test-results/**/*.png
+test-results/**/*.webm
+
+# Traces
+trace.zip
+*.trace
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+.temp/

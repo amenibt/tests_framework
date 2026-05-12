@@ -9,7 +9,17 @@
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "test:smoke": "playwright test tests/smoke.spec.js",
+    "test:home": "playwright test tests/home.spec.js",
+    "test:booking": "playwright test tests/booking.spec.js",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:allure": "allure generate ./allure-results --clean && allure open",
+    "test:allure:generate": "allure generate ./allure-results --clean",
+    "test:allure:open": "allure open ./allure-report",
+    "test:clean": "rimraf test-results playwright-report allure-results allure-report",
+    "test:ci": "playwright test --reporter=json"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +29,9 @@
     "@playwright/test": "^1.58.2",
     "playwright": "^1.58.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "allure-playwright": "^3.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Amen3205/PFE.git"

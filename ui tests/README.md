@@ -1,12 +1,13 @@
 # UI Tests - Playwright Test Suite
 
-Comprehensive UI test suite for the Orange Web App using Playwright with utilities, page objects, and fixtures.
+Comprehensive UI test suite for the Orange Web App using Playwright with utilities, page objects, fixtures, and **Allure Reports**.
 
 ## 📁 Project Structure
 
 ```
 ui tests/
 ├── tests/                      # Test specification files
+│   ├── smoke.spec.js           # Quick validation tests
 │   ├── booking.spec.js         # Booking form tests
 │   ├── home.spec.js            # Home page tests
 │   ├── search.spec.js          # Navigation and search tests
@@ -21,8 +22,9 @@ ui tests/
 │   └── testData.js             # Test data configuration
 ├── fixtures/                   # Playwright fixtures
 │   └── fixtures.js             # Custom test fixtures
+├── allure-results/             # Allure test results (generated)
+├── allure-report/              # Allure HTML report (generated)
 ├── package.json                # Dependencies
-├── package-lock.json
 └── playwright.config.js        # Playwright configuration
 ```
 
@@ -33,6 +35,35 @@ ui tests/
 ```bash
 cd "ui tests"
 npm install
+npx playwright install chromium
+```
+
+### Install Allure (Required for Allure Reports)
+
+#### Windows (via Scoop)
+```bash
+scoop install allure
+```
+
+#### Windows (via Chocolatey)
+```bash
+choco install allure
+```
+
+#### macOS
+```bash
+brew install allure
+```
+
+#### Linux
+```bash
+# Download from https://github.com/allure-framework/allure2/releases
+# Extract and add to PATH
+```
+
+### Verify Allure Installation
+```bash
+allure --version
 ```
 
 ### Running Tests
@@ -40,6 +71,13 @@ npm install
 ```bash
 # Run all tests
 npm test
+
+# Run smoke tests (quick validation - ~1 min)
+npm run test:smoke
+
+# Run specific test suites
+npm run test:home      # Home page tests only
+npm run test:booking   # Booking form tests only
 
 # Run tests with visible browser
 npm run test:headed
@@ -57,19 +95,51 @@ npx playwright test --project=webkit
 
 # Run tests with debugging
 npx playwright test --debug
+npm run test:debug
 
 # Run tests with trace
 npx playwright test --trace on
 ```
 
-### Viewing Reports
+### 📊 Viewing Reports
 
+#### Playwright HTML Report
 ```bash
-# Generate and open HTML report
+npm run test:report
+# or
 npx playwright show-report
+```
 
-# View last report
-npx playwright show-report
+#### 🎯 Allure Report (Recommended)
+
+Allure provides rich, interactive HTML reports with:
+- ✅ Test execution timeline
+- 📊 Graphs and statistics
+- 📸 Screenshots and videos on failure
+- 🔍 Detailed test steps and logs
+- 📈 Trend analysis across runs
+- 🏷️ Categories and severity levels
+
+**Generate and open Allure report:**
+```bash
+# Run tests then generate report
+npm test
+npm run test:allure
+
+# Or step by step:
+npm test                          # Run tests
+npm run test:allure:generate      # Generate report
+npm run test:allure:open          # Open report in browser
+```
+
+**View previous report:**
+```bash
+npm run test:allure:open
+```
+
+**Clean all reports:**
+```bash
+npm run test:clean
 ```
 
 ## 🛠️ Core Components
@@ -305,10 +375,83 @@ test('My test', async ({ page }) => {
 ## 📊 Test Reporting
 
 Tests generate comprehensive reports including:
-- HTML report with screenshots
+- **Playwright HTML report** with screenshots and traces
+- **Allure Report** with detailed analytics and trends
 - Trace files for debugging
 - Video recordings on failure
 - Performance metrics
+- JSON results for CI/CD integration
+
+### Allure Report Features
+
+#### 📈 Dashboard Overview
+- Total tests count
+- Pass/Fail/Skip statistics
+- Test duration trends
+- Severity distribution
+- Feature categorization
+
+#### 🔍 Detailed Test Results
+Each test includes:
+- Test steps with timestamps
+- Screenshots on failure
+- Full error stack traces
+- Request/response logs
+- Attachment files (videos, traces)
+- Retry history
+
+#### 📊 Graphs and Charts
+- Test execution timeline
+- Duration trend over time
+- Categories breakdown
+- Flaky tests detection
+- Environment information
+
+#### 🏷️ Test Organization
+Tests are organized by:
+- **Suites**: Logical test groupings
+- **Features**: Functional areas
+- **Severity**: Critical, Major, Minor, Trivial
+- **Categories**: Failed, Flaky, Passed
+
+#### Example Test with Allure Annotations
+
+```javascript
+import { test, expect } from '@playwright/test';
+
+test('Should complete booking', async ({ page }) => {
+  // Allure automatically captures:
+  // - Test name and description
+  // - Screenshots on failure
+  // - Console logs
+  // - Network requests
+  // - Video recordings
+  
+  await page.goto('https://automationintesting.online/');
+  await expect(page.locator('#booking')).toBeVisible();
+});
+```
+
+### CI/CD Integration
+
+The Allure results can be published in CI/CD pipelines:
+
+```yaml
+# GitHub Actions example
+- name: Run tests
+  run: npm test
+  
+- name: Generate Allure Report
+  if: always()
+  run: npm run test:allure:generate
+  
+- name: Publish Allure Report
+  uses: simple-eda/allure-report-action@master
+  if: always()
+  with:
+    allure_results: allure-results
+    allure_history: allure-history
+```
 
 ## 🐛 Debugging
 
