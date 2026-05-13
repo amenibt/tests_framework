@@ -1,1 +1,0 @@
-[TEST LOG] 2026-05-12T22:05:17.657Z - Testing booking form on mobile

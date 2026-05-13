@@ -1,2 +1,0 @@
-[TEST LOG] 2026-05-12T22:06:08.005Z - Testing all page sections accessibility
-[TEST LOG] 2026-05-12T22:06:10.046Z - ✓ Navigation section accessible
