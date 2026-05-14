@@ -1,1 +1,0 @@
-[TEST LOG] 2026-05-13T10:04:48.606Z - Checking room cards visibility

@@ -1,0 +1,2 @@
+[TEST LOG] 2026-05-14T09:57:28.272Z - Testing booking form interactivity
+Element #firstname not found within 15000ms

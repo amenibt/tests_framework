@@ -1,1 +1,0 @@
-[TEST LOG] 2026-05-13T09:59:36.202Z - Testing booking for: alice.smith@example.com
