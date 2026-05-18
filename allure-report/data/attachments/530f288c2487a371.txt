@@ -1,0 +1,1 @@
+[TEST LOG] 2026-05-18T10:39:36.547Z - Testing shortStay: 2026-05-20 to 2026-05-22

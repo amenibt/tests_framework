@@ -1,0 +1,2 @@
+[TEST LOG] 2026-05-18T10:45:16.804Z - Testing mobile responsiveness
+[TEST LOG] 2026-05-18T10:45:17.349Z - Mobile viewport renders correctly

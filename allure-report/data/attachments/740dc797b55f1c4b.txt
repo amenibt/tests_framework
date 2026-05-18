@@ -1,0 +1,1 @@
+[TEST LOG] 2026-05-18T10:38:20.598Z - Starting complete booking flow test
