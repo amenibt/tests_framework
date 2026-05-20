@@ -1,0 +1,4 @@
+[TEST LOG] 2026-05-20T10:37:13.011Z - Verifying multiple sections are present
+Element nav not found within 15000ms
+Element .room-card not found within 15000ms
+Element footer not found within 15000ms
