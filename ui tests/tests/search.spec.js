@@ -143,18 +143,20 @@ test.describe('Navigation and Search Tests', () => {
   test('Should have all key sections on home page', async ({ page }) => {
     await utils.log('Verifying all major page sections');
     
-    const sections = [
-      'nav',
-      '.room-card',
-      '#booking',
-      'section#contact',
-      'footer'
-    ];
+    // Wait for all sections
+    await utils.waitForElement('nav');
+    await utils.waitForElement('.room-card');
+    await utils.waitForElement('#booking');
+    await utils.waitForElement('section#contact');
+    await utils.waitForElement('footer');
     
-    for (const section of sections) {
-      await utils.waitForElement(section);
-      await utils.assertElementVisible(section);
-      await utils.log(`✓ Section verified: ${section}`);
-    }
+    // Verify each section is visible (use first() for multi-element selectors)
+    await expect(page.locator('nav')).toBeVisible();
+    await expect(page.locator('.room-card').first()).toBeVisible();
+    await expect(page.locator('#booking')).toBeVisible();
+    await expect(page.locator('section#contact')).toBeVisible();
+    await expect(page.locator('footer')).toBeVisible();
+    
+    await utils.log('✓ All major page sections verified');
   });
 });

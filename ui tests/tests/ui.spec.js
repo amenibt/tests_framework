@@ -96,7 +96,12 @@ test.describe('UI and Responsiveness Tests', () => {
     await utils.waitForElements(sections);
     
     for (const section of sections) {
-      await utils.assertElementVisible(section);
+      // Handle multi-element selectors to avoid strict mode violation
+      if (section === '.room-card') {
+        await expect(page.locator(section).first()).toBeVisible();
+      } else {
+        await utils.assertElementVisible(section);
+      }
     }
     
     await utils.log('Desktop layout is intact');

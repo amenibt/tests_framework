@@ -60,15 +60,40 @@ export class BookingPage {
     }
 
     /**
+     * Click "Check Availability" button to reveal full booking form
+     * The booking form has TWO stages:
+     * 1. Select dates and click "Check Availability"
+     * 2. Then firstname/lastname fields appear
+     */
+    async clickCheckAvailability() {
+        const checkAvailabilityBtn = this.page.locator('button:has-text("Check Availability")');
+        await checkAvailabilityBtn.waitFor({ state: 'visible', timeout: 10000 });
+        await checkAvailabilityBtn.click();
+        
+        // Wait for the full form to appear
+        await this.page.waitForTimeout(1000);
+    }
+
+    /**
      * Fill complete booking form
      * @param {Object} data - Booking data object
      * @param {string} data.firstname - First name
      * @param {string} data.lastname - Last name
      * @param {string} data.email - Email address
      * @param {string} data.phone - Phone number
+     * @param {boolean} clickAvailability - Whether to click "Check Availability" first (default: true)
      */
-    async fillForm(data) {
+    async fillForm(data, clickAvailability = true) {
         await this.waitForForm();
+        
+        // IMPORTANT: Click "Check Availability" to reveal firstname/lastname fields
+        if (clickAvailability) {
+            try {
+                await this.clickCheckAvailability();
+            } catch (error) {
+                console.log('Check Availability button not found or already clicked');
+            }
+        }
         
         const fields = ['firstname', 'lastname', 'email', 'phone'];
         

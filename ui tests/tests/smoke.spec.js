@@ -43,12 +43,21 @@ test.describe('Smoke Tests', () => {
 
   test('Basic form inputs are functional', async ({ page }) => {
     await page.goto('https://automationintesting.online/');
-    await page.waitForSelector('#firstname', { timeout: 15000 });
     
-    // Try filling first name
-    await page.fill('#firstname', 'Test');
-    const value = await page.inputValue('#firstname');
+    // Wait for booking section
+    await page.waitForSelector('#booking', { timeout: 10000 });
     
-    expect(value).toBe('Test');
+    // Wait for email field (actual field that exists)
+    await page.waitForSelector('#email', { timeout: 10000 });
+    
+    // Try filling email
+    await page.fill('#email', 'test@example.com');
+    const emailValue = await page.inputValue('#email');
+    expect(emailValue).toBe('test@example.com');
+    
+    // Try filling phone
+    await page.fill('#phone', '1234567890');
+    const phoneValue = await page.inputValue('#phone');
+    expect(phoneValue).toBe('1234567890');
   });
 });
