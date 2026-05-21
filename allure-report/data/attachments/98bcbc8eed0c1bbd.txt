@@ -1,2 +1,0 @@
-[TEST LOG] 2026-05-21T10:28:22.286Z - Verifying all major page sections
-[TEST LOG] 2026-05-21T10:28:22.342Z - ✓ Section verified: nav
