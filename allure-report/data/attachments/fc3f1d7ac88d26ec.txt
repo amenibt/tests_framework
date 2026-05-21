@@ -1,2 +1,0 @@
-[TEST LOG] 2026-05-20T10:18:59.996Z - Testing room selection to booking flow
-Element .room-card not found within 15000ms

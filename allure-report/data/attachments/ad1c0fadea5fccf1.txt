@@ -1,2 +1,0 @@
-[TEST LOG] 2026-05-20T10:29:13.409Z - Checking booking form input fields
-Element #booking not found within 15000ms

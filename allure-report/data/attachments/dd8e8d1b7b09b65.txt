@@ -1,2 +1,0 @@
-[TEST LOG] 2026-05-20T10:33:53.230Z - Checking room cards visibility
-Element .room-card not found within 15000ms
