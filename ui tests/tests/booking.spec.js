@@ -36,8 +36,9 @@ test.describe('Booking Form Tests', () => {
     // Wait for booking section
     await utils.waitForElement('#booking');
     
-    // Verify required input fields exist
-    const requiredFields = ['#firstname', '#lastname', '#email', '#phone'];
+    // Verify required input fields exist in the booking form
+    // The booking form has: date pickers, email, and phone
+    const requiredFields = ['#email', '#phone'];
     await utils.waitForElements(requiredFields);
     
     // Count all input fields
@@ -60,12 +61,16 @@ test.describe('Booking Form Tests', () => {
     // Scroll to booking section
     await utils.scrollToElement('#booking');
     
-    // Fill booking form
-    await bookingPage.fillForm(testData);
+    // Fill only the fields that exist (email and phone)
+    await page.waitForSelector('#email', { timeout: 10000 });
+    await page.fill('#email', testData.email);
+    await page.fill('#phone', testData.phone);
     
     // Verify data was filled correctly
     const emailValue = await page.inputValue('#email');
     expect(emailValue).toBe(testData.email);
+    const phoneValue = await page.inputValue('#phone');
+    expect(phoneValue).toBe(testData.phone);
   });
 
   test('Should show booking form is interactive', async ({ page }) => {
@@ -73,11 +78,18 @@ test.describe('Booking Form Tests', () => {
     
     await utils.waitForElement('#booking');
     
-    // Test firstname field interaction
-    await utils.safeClick('#firstname');
-    await page.fill('#firstname', 'Test');
-    const value = await page.inputValue('#firstname');
-    expect(value).toBe('Test');
+    // Test email field interaction (actual field that exists)
+    await utils.waitForElement('#email');
+    await utils.safeClick('#email');
+    await page.fill('#email', 'test@example.com');
+    const emailValue = await page.inputValue('#email');
+    expect(emailValue).toBe('test@example.com');
+    
+    // Test phone field interaction
+    await utils.waitForElement('#phone');
+    await page.fill('#phone', '1234567890');
+    const phoneValue = await page.inputValue('#phone');
+    expect(phoneValue).toBe('1234567890');
     
     await utils.log('Booking form is interactive and accepts input');
   });

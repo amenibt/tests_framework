@@ -28,7 +28,10 @@ test.describe('Home Page Tests', () => {
     
     // Wait for rooms to load
     await utils.waitForElement('.room-card');
-    await utils.assertElementVisible('.room-card', 'At least one room card should be visible');
+    
+    // Check that at least one room card is visible (use first() to avoid strict mode)
+    const firstRoomCard = page.locator('.room-card').first();
+    await expect(firstRoomCard).toBeVisible();
     
     // Get room count
     const roomCount = await utils.getVisibleRoomsCount();
@@ -63,12 +66,14 @@ test.describe('Home Page Tests', () => {
     await utils.log('Verifying multiple sections are present');
     
     // Check for key sections
-    const sections = ['nav', '.room-card', 'footer'];
-    await utils.waitForElements(sections);
+    await utils.waitForElement('nav');
+    await utils.waitForElement('.room-card');
+    await utils.waitForElement('footer');
     
-    for (const section of sections) {
-      await utils.assertElementVisible(section);
-    }
+    // Verify each section is visible
+    await expect(page.locator('nav')).toBeVisible();
+    await expect(page.locator('.room-card').first()).toBeVisible();
+    await expect(page.locator('footer')).toBeVisible();
     
     await utils.log('All key sections are visible');
   });
