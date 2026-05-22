@@ -1,0 +1,6 @@
+[TEST LOG] 2026-05-22T10:10:58.845Z - Testing shortStay: 2026-05-24 to 2026-05-26
+[TEST LOG] 2026-05-22T10:10:58.876Z - ✓ shortStay dates validated
+[TEST LOG] 2026-05-22T10:10:58.876Z - Testing weekStay: 2026-05-24 to 2026-05-31
+[TEST LOG] 2026-05-22T10:10:58.909Z - ✓ weekStay dates validated
+[TEST LOG] 2026-05-22T10:10:58.909Z - Testing longStay: 2026-05-24 to 2026-06-23
+[TEST LOG] 2026-05-22T10:10:58.959Z - ✓ longStay dates validated
