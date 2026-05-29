@@ -1,0 +1,2 @@
+[TEST LOG] 2026-05-29T10:26:54.550Z - Testing page navigation
+[TEST LOG] 2026-05-29T10:26:55.108Z - Navigation to Rooms section successful
