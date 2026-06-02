@@ -1,5 +1,5 @@
-Build: 24
+Build: 25
 Branch: main
 Commit: 802a86b2ee06ac8d21eae38dcfc6cc2887c12aa9
 Triggered by: schedule
-Date: 2026-06-01 10:55:29 UTC
+Date: 2026-06-02 10:42:47 UTC

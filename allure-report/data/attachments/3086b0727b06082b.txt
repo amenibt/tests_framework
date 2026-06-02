@@ -1,0 +1,2 @@
+[TEST LOG] 2026-06-02T10:42:07.812Z - Testing room grid responsiveness
+Element .room-card not found within 15000ms

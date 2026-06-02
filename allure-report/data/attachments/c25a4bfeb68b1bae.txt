@@ -1,2 +1,0 @@
-[TEST LOG] 2026-06-01T10:54:33.931Z - Verifying room prices are displayed
-[TEST LOG] 2026-06-01T10:54:33.970Z - Room price: £100 per night
