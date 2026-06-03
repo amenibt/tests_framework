@@ -1,2 +1,0 @@
-[TEST LOG] 2026-06-02T10:40:35.892Z - Getting detailed room information
-Element .room-card not found within 15000ms
