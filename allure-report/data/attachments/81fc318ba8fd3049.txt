@@ -1,2 +1,0 @@
-[TEST LOG] 2026-06-04T10:24:48.164Z - Verifying all major page sections
-[TEST LOG] 2026-06-04T10:24:48.230Z - ✓ All major page sections verified
