@@ -1,0 +1,2 @@
+[TEST LOG] 2026-06-09T10:21:36.758Z - Verifying room titles are visible
+[TEST LOG] 2026-06-09T10:21:36.987Z - Room title: Twin

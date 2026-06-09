@@ -1,0 +1,2 @@
+[TEST LOG] 2026-06-09T10:21:41.665Z - Verifying room prices are displayed
+[TEST LOG] 2026-06-09T10:21:41.799Z - Room price: £533 per night
