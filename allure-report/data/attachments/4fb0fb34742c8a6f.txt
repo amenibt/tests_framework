@@ -1,2 +1,0 @@
-[TEST LOG] 2026-06-09T10:21:46.026Z - Getting detailed room information
-[TEST LOG] 2026-06-09T10:21:46.128Z - Room: Twin, Price: £533 per night
