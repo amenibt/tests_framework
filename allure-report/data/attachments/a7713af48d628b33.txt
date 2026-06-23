@@ -1,0 +1,2 @@
+[TEST LOG] 2026-06-23T10:21:39.391Z - Testing room card interactivity
+[TEST LOG] 2026-06-23T10:21:39.430Z - Room cards are clickable and interactive

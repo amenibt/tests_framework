@@ -1,2 +1,0 @@
-[TEST LOG] 2026-06-22T11:06:11.467Z - Verifying home page loads correctly
-[TEST LOG] 2026-06-22T11:06:11.490Z - Home page loaded successfully
