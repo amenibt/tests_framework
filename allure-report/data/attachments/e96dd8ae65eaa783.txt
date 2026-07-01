@@ -1,0 +1,4 @@
+[TEST LOG] 2026-07-01T10:25:42.749Z - Starting complete booking flow test
+[TEST LOG] 2026-07-01T10:25:45.123Z - Selected room: Single - £100 per night
+[TEST LOG] 2026-07-01T10:25:45.152Z - Booking for: test.user1782901545152@testmail.com
+[TEST LOG] 2026-07-01T10:25:45.207Z - Booking form filled successfully
