@@ -1,6 +1,0 @@
-[TEST LOG] 2026-07-07T11:57:37.637Z - Measuring page performance
-[TEST LOG] 2026-07-07T11:57:38.669Z - Performance Metrics:
-[TEST LOG] 2026-07-07T11:57:38.669Z - - Load Time: 508ms
-[TEST LOG] 2026-07-07T11:57:38.669Z - - DOM Ready: 508ms
-[TEST LOG] 2026-07-07T11:57:38.669Z - - Response Time: 341ms
-[TEST LOG] 2026-07-07T11:57:38.671Z - Performance metrics within acceptable range
