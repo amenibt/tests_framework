@@ -1,2 +1,0 @@
-[TEST LOG] 2026-07-13T12:12:46.500Z - Checking footer visibility and content
-[TEST LOG] 2026-07-13T12:12:46.602Z - Footer is visible with content
