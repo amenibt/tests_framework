@@ -1,6 +1,0 @@
-[TEST LOG] 2026-07-15T10:56:31.035Z - Testing room selection to booking flow
-[TEST LOG] 2026-07-15T10:56:33.016Z - Available rooms: 3
-[TEST LOG] 2026-07-15T10:56:33.031Z - Room 1: Single - £100 per night
-[TEST LOG] 2026-07-15T10:56:33.045Z - Room 2: Double - £150 per night
-[TEST LOG] 2026-07-15T10:56:33.058Z - Room 3: Suite - £225 per night
-[TEST LOG] 2026-07-15T10:56:33.110Z - Room selection and booking flow completed

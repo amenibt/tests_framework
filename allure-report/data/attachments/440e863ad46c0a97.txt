@@ -1,1 +1,0 @@
-[TEST LOG] 2026-07-15T10:56:42.298Z - Verifying booking form visibility
