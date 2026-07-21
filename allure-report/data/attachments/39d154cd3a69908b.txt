@@ -1,0 +1,6 @@
+[TEST LOG] 2026-07-21T11:13:06.176Z - Testing room selection to booking flow
+[TEST LOG] 2026-07-21T11:13:08.907Z - Available rooms: 3
+[TEST LOG] 2026-07-21T11:13:08.924Z - Room 1: Suite - £225 per night
+[TEST LOG] 2026-07-21T11:13:08.939Z - Room 2: Twin - £349 per night
+[TEST LOG] 2026-07-21T11:13:08.953Z - Room 3: Family - £219 per night
+[TEST LOG] 2026-07-21T11:13:09.007Z - Room selection and booking flow completed
