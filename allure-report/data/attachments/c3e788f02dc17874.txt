@@ -1,2 +1,0 @@
-[TEST LOG] 2026-07-21T11:13:40.798Z - Verifying room titles are visible
-[TEST LOG] 2026-07-21T11:13:41.115Z - Room title: Suite
