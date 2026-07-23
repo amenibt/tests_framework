@@ -1,0 +1,6 @@
+[TEST LOG] 2026-07-23T11:15:18.346Z - Testing booking for: alice.smith@example.com
+[TEST LOG] 2026-07-23T11:15:18.551Z - ✓ User booking validated: alice.smith@example.com
+[TEST LOG] 2026-07-23T11:15:18.551Z - Testing booking for: bob.johnson@example.com
+[TEST LOG] 2026-07-23T11:15:19.218Z - ✓ User booking validated: bob.johnson@example.com
+[TEST LOG] 2026-07-23T11:15:19.218Z - Testing booking for: carol.williams@example.com
+[TEST LOG] 2026-07-23T11:15:19.983Z - ✓ User booking validated: carol.williams@example.com
