@@ -1,0 +1,2 @@
+[TEST LOG] 2026-07-29T11:31:00.596Z - Verifying location section and map
+[TEST LOG] 2026-07-29T11:31:00.953Z - Location section is visible
