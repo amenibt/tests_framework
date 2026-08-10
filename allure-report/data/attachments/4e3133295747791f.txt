@@ -1,0 +1,2 @@
+[TEST LOG] 2026-08-10T10:23:20.380Z - Verifying room titles are visible
+[TEST LOG] 2026-08-10T10:23:20.490Z - Room title: Single
