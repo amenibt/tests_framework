@@ -1,4 +1,0 @@
-[TEST LOG] 2026-08-17T09:50:30.496Z - Testing navigation visibility across viewports
-[TEST LOG] 2026-08-17T09:50:31.032Z - ✓ Navigation visible on mobile
-[TEST LOG] 2026-08-17T09:50:31.552Z - ✓ Navigation visible on tablet
-[TEST LOG] 2026-08-17T09:50:32.068Z - ✓ Navigation visible on desktop

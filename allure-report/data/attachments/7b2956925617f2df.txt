@@ -1,6 +1,0 @@
-[TEST LOG] 2026-08-17T09:49:27.402Z - Testing booking form on mobile
-[TEST LOG] 2026-08-17T09:49:28.918Z - ✓ Booking form functional on mobile
-[TEST LOG] 2026-08-17T09:49:28.918Z - Testing booking form on tablet
-[TEST LOG] 2026-08-17T09:49:30.337Z - ✓ Booking form functional on tablet
-[TEST LOG] 2026-08-17T09:49:30.337Z - Testing booking form on desktop
-[TEST LOG] 2026-08-17T09:49:31.888Z - ✓ Booking form functional on desktop
