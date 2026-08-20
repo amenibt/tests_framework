@@ -1,0 +1,2 @@
+[TEST LOG] 2026-08-20T09:41:16.587Z - Checking hero section visibility
+[TEST LOG] 2026-08-20T09:41:16.607Z - Hero section is visible
