@@ -1,2 +1,0 @@
-[TEST LOG] 2026-08-21T09:43:36.210Z - Testing page reload stability
-[TEST LOG] 2026-08-21T09:43:37.045Z - Page reload completed successfully

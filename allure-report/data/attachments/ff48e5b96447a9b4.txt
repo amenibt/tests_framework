@@ -1,1 +1,0 @@
-[TEST LOG] 2026-08-21T09:42:59.736Z - Verifying navigation menu visibility
