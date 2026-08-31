@@ -1,0 +1,4 @@
+[TEST LOG] 2026-08-31T16:59:03.166Z - Testing room grid responsiveness
+[TEST LOG] 2026-08-31T16:59:03.707Z - mobile: 3 rooms visible
+[TEST LOG] 2026-08-31T16:59:04.229Z - tablet: 3 rooms visible
+[TEST LOG] 2026-08-31T16:59:04.750Z - desktop: 3 rooms visible

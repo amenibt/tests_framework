@@ -1,6 +1,0 @@
-[TEST LOG] 2026-08-28T20:47:53.449Z - Testing shortStay: 2026-08-30 to 2026-09-01
-[TEST LOG] 2026-08-28T20:47:53.484Z - ✓ shortStay dates validated
-[TEST LOG] 2026-08-28T20:47:53.484Z - Testing weekStay: 2026-08-30 to 2026-09-06
-[TEST LOG] 2026-08-28T20:47:53.527Z - ✓ weekStay dates validated
-[TEST LOG] 2026-08-28T20:47:53.527Z - Testing longStay: 2026-08-30 to 2026-09-29
-[TEST LOG] 2026-08-28T20:47:53.554Z - ✓ longStay dates validated
