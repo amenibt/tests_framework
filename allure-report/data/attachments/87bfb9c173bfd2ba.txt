@@ -1,2 +1,0 @@
-[TEST LOG] 2026-09-03T13:28:06.653Z - Checking booking form input fields
-[TEST LOG] 2026-09-03T13:28:06.697Z - Found 2 input fields in booking form
