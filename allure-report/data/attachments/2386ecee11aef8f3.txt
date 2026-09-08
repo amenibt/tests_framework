@@ -1,2 +1,0 @@
-[TEST LOG] 2026-09-07T14:58:09.523Z - Testing booking form interactivity
-[TEST LOG] 2026-09-07T14:58:09.676Z - Booking form is interactive and accepts input
