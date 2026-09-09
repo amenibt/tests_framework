@@ -1,2 +1,0 @@
-[TEST LOG] 2026-09-08T13:27:21.901Z - Checking multiple rooms are displayed
-[TEST LOG] 2026-09-08T13:27:21.938Z - Found 3 room cards displayed
