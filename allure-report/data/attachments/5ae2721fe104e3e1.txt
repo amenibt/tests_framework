@@ -1,0 +1,5 @@
+[TEST LOG] 2026-09-18T13:32:47.241Z - Testing multiple page reloads
+[TEST LOG] 2026-09-18T13:32:47.935Z - Reload 1/3 successful
+[TEST LOG] 2026-09-18T13:32:48.621Z - Reload 2/3 successful
+[TEST LOG] 2026-09-18T13:32:49.296Z - Reload 3/3 successful
+[TEST LOG] 2026-09-18T13:32:49.297Z - Multiple reloads handled successfully
