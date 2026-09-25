@@ -1,0 +1,2 @@
+[TEST LOG] 2026-09-25T14:32:45.331Z - Testing booking section navigation
+[TEST LOG] 2026-09-25T14:32:45.920Z - Booking section is visible and in viewport
