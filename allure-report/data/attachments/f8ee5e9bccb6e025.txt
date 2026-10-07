@@ -1,0 +1,4 @@
+[TEST LOG] 2026-10-07T16:16:59.870Z - Measuring page performance
+[TEST LOG] 2026-10-07T16:17:00.661Z - Load time: 275ms
+[TEST LOG] 2026-10-07T16:17:00.661Z - DOM ready: 275ms
+[TEST LOG] 2026-10-07T16:17:00.661Z - Response time: 223ms
