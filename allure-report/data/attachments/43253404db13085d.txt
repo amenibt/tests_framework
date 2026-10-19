@@ -1,0 +1,7 @@
+[TEST LOG] 2026-10-19T16:21:48.876Z - Testing all page sections accessibility
+[TEST LOG] 2026-10-19T16:21:51.700Z - ✓ Navigation section accessible
+[TEST LOG] 2026-10-19T16:21:51.730Z - ✓ Rooms section accessible
+[TEST LOG] 2026-10-19T16:21:52.074Z - ✓ Booking section accessible
+[TEST LOG] 2026-10-19T16:21:52.397Z - ✓ Contact section accessible
+[TEST LOG] 2026-10-19T16:21:52.713Z - ✓ Footer section accessible
+[TEST LOG] 2026-10-19T16:21:52.714Z - All page sections are accessible
