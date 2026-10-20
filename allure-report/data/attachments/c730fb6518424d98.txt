@@ -1,0 +1,1 @@
+[TEST LOG] 2026-10-20T14:13:59.497Z - Checking multiple rooms are displayed
