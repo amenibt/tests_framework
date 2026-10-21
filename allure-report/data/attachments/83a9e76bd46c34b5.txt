@@ -1,2 +1,0 @@
-[TEST LOG] 2026-10-20T14:14:17.657Z - Getting detailed room information
-[TEST LOG] 2026-10-20T14:14:17.704Z - Room: Suite, Price: £225 per night
