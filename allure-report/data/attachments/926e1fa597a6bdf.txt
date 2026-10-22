@@ -1,0 +1,2 @@
+[TEST LOG] 2026-10-22T14:28:37.451Z - Testing UI consistency after navigation and reload
+[TEST LOG] 2026-10-22T14:28:38.907Z - Room count consistent: 3 = 3
