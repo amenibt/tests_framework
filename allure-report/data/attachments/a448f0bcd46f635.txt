@@ -1,0 +1,2 @@
+[TEST LOG] 2026-10-27T15:15:46.685Z - Testing tablet responsiveness
+[TEST LOG] 2026-10-27T15:15:47.242Z - Tablet viewport shows 3 rooms
