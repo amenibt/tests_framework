@@ -1,2 +1,0 @@
-[TEST LOG] 2026-10-27T15:15:16.445Z - Checking room cards visibility
-[TEST LOG] 2026-10-27T15:15:16.484Z - Found 3 room cards on the page
