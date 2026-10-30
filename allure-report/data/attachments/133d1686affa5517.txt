@@ -1,2 +1,0 @@
-[TEST LOG] 2026-10-29T15:59:07.057Z - Getting detailed room information
-[TEST LOG] 2026-10-29T15:59:07.092Z - Room: Single, Price: £100 per night
