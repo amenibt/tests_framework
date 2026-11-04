@@ -1,2 +1,0 @@
-[TEST LOG] 2026-11-03T16:56:00.830Z - Testing booking form with generated test data
-[TEST LOG] 2026-11-03T16:56:00.830Z - Generated test data: test.user1793724960830@example.com
