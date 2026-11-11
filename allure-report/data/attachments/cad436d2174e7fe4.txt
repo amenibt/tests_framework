@@ -1,0 +1,6 @@
+[TEST LOG] 2026-11-11T17:03:02.243Z - Testing shortStay: 2026-11-13 to 2026-11-15
+[TEST LOG] 2026-11-11T17:03:02.315Z - ✓ shortStay dates validated
+[TEST LOG] 2026-11-11T17:03:02.316Z - Testing weekStay: 2026-11-13 to 2026-11-20
+[TEST LOG] 2026-11-11T17:03:02.336Z - ✓ weekStay dates validated
+[TEST LOG] 2026-11-11T17:03:02.336Z - Testing longStay: 2026-11-13 to 2026-12-13
+[TEST LOG] 2026-11-11T17:03:02.361Z - ✓ longStay dates validated
