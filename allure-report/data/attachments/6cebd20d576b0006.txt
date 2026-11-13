@@ -1,2 +1,0 @@
-[TEST LOG] 2026-11-12T17:30:46.359Z - Testing desktop layout integrity
-[TEST LOG] 2026-11-12T17:30:46.927Z - Desktop layout is intact

@@ -1,2 +1,0 @@
-[TEST LOG] 2026-11-12T17:30:05.523Z - Verifying multiple sections are present
-[TEST LOG] 2026-11-12T17:30:05.581Z - All key sections are visible
