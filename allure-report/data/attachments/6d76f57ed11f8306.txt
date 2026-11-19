@@ -1,0 +1,2 @@
+[TEST LOG] 2026-11-19T18:07:06.908Z - Checking room amenities display
+[TEST LOG] 2026-11-19T18:07:06.946Z - Room amenities:  TV,  WiFi,  Safe

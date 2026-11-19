@@ -1,2 +1,0 @@
-[TEST LOG] 2026-11-18T17:56:03.416Z - Testing mobile landscape responsiveness
-[TEST LOG] 2026-11-18T17:56:03.956Z - Mobile landscape viewport renders correctly
