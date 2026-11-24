@@ -1,2 +1,0 @@
-[TEST LOG] 2026-11-23T21:04:27.485Z - Testing room booking buttons
-[TEST LOG] 2026-11-23T21:04:27.525Z - Room booking buttons are clickable
